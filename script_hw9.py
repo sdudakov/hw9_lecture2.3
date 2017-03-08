@@ -57,6 +57,9 @@ def create_shop_list():
 
 import yaml
 cook_book = load_cook_book("data_hw9.json")
+with open("data_hw9.yml", "w", encoding="utf-8") as file:
+ 	yaml.dump(cook_book, file, allow_unicode = True, encoding = None, indent=2)
+
 # with open(data_hw9.yml, "r", encoding="utf-8") as file:
 # 	cook_book = yaml.load(file)
 # 	pprint(cook_book)
