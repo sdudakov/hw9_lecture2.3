@@ -1,16 +1,19 @@
 def load_cook_book(file_name):
-	cook_book = {}
-	with open(file_name, "r", encoding="utf-8") as f:
-		for dish in f:
-			ingridient_count = int(f.readline())
-			ingridient_list = [] #создаю пустой список, который будет обнуляться на следующей итерации
-			for _ in range(ingridient_count):
-				ingridient = f.readline()
-				ingridient = ingridient.strip()
-				ingridient = ingridient.split(" | ")
-				ingridient_item = dict({"ingridient_name": ingridient[0], "quantity": int(ingridient[1]), "measure": ingridient[2]})
-				ingridient_list.append(ingridient_item) #на каждой итерации добавляю в список словарь
-			cook_book[dish.strip()] = ingridient_list #присваиваю ключу dish словаря cook_book значение - список, состоящий из словарей
+	import json
+	with open("data_hw9.json", "r", encoding="utf-8") as file:
+		cook_book = json.load(file)
+	# cook_book = {}
+	# with open(file_name, "r", encoding="utf-8") as f:
+	# 	for dish in f:
+	# 		ingridient_count = int(f.readline())
+	# 		ingridient_list = [] #создаю пустой список, который будет обнуляться на следующей итерации
+	# 		for _ in range(ingridient_count):
+	# 			ingridient = f.readline()
+	# 			ingridient = ingridient.strip()
+	# 			ingridient = ingridient.split(" | ")
+	# 			ingridient_item = dict({"ingridient_name": ingridient[0], "quantity": int(ingridient[1]), "measure": ingridient[2]})
+	# 			ingridient_list.append(ingridient_item) #на каждой итерации добавляю в список словарь
+	# 		cook_book[dish.strip()] = ingridient_list #присваиваю ключу dish словаря cook_book значение - список, состоящий из словарей
 	return cook_book
 
 def get_shop_list_by_dishes(cook_book, dishes, person_count):
@@ -37,9 +40,17 @@ def create_shop_list():
   shop_list = get_shop_list_by_dishes(cook_book, dishes, person_count)
   print_shop_list(shop_list)
 
-cook_book = load_cook_book("data_hw7.txt")
-import json
-with open("data_hw9.json", encoding=utf-8) as file:
-	json.dumps(cook_book)
-#create_shop_list()
+create_shop_list()
 
+# записать cook_book в файл data_hw9.json
+# cook_book = load_cook_book("data_hw7.txt")
+# import json
+# with open("data_hw9.json", "w", encoding="utf-8") as file:
+# 	json.dump(cook_book, file, ensure_ascii=False, indent=2)
+
+# прочитать cook_book из файла data_hw9.json
+# import json
+# from pprint import pprint
+# with open("data_hw9.json", "r", encoding="utf-8") as file:
+# 	cook_book = json.load(file)
+# pprint(cook_book)
