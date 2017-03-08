@@ -1,6 +1,6 @@
 def load_cook_book(file_name):
 	import json
-	with open("data_hw9.json", "r", encoding="utf-8") as file:
+	with open(file_name, "r", encoding="utf-8") as file:
 		cook_book = json.load(file)
 	# cook_book = {}
 	# with open(file_name, "r", encoding="utf-8") as f:
@@ -36,11 +36,11 @@ def print_shop_list(shop_list):
 def create_shop_list():
   person_count = int(input('Введите количество человек: '))
   dishes = input('Введите блюда в расчете на одного человека (через запятую): ').lower().split(', ')
-  cook_book = load_cook_book("data_hw7.txt")
+  cook_book = load_cook_book("data_hw9.json")
   shop_list = get_shop_list_by_dishes(cook_book, dishes, person_count)
   print_shop_list(shop_list)
 
-create_shop_list()
+#create_shop_list()
 
 # записать cook_book в файл data_hw9.json
 # cook_book = load_cook_book("data_hw7.txt")
@@ -54,3 +54,9 @@ create_shop_list()
 # with open("data_hw9.json", "r", encoding="utf-8") as file:
 # 	cook_book = json.load(file)
 # pprint(cook_book)
+
+import yaml
+cook_book = load_cook_book("data_hw9.json")
+# with open(data_hw9.yml, "r", encoding="utf-8") as file:
+# 	cook_book = yaml.load(file)
+# 	pprint(cook_book)
