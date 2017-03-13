@@ -1,11 +1,12 @@
+import json
+import yaml
+
 def load_cook_book_json(file_name):
-	import json
 	with open(file_name, "r", encoding="utf-8") as file:
 		cook_book = json.load(file)
 	return cook_book
 
-def load_cook_book_yaml(file_name):
-	import yaml
+def load_cook_book_yaml(file_name):	
 	with open(file_name, "r", encoding="utf-8") as file:
 		cook_book = yaml.load(file)
 	return cook_book
